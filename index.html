@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do & Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Light/Dark Mode Toggle -->
+        <button id="theme-toggle">
+            <img id="theme-icon" src="icons/light-mode.png" alt="Theme">
+        </button>
+
+        <!-- To-Do List Section -->
+        <div class="todo-section">
+            <h2>To-Do List</h2>
+            <div class="input-area">
+                <input type="text" id="task-input" placeholder="Add a task...">
+                <button id="add-task"><img src="icons/add-task.png" alt="Add"></button>
+            </div>
+            <ul id="task-list"></ul>
+        </div>
+
+        <!-- Weather App Section -->
+        <div class="weather-section">
+            <h2>Weather Info</h2>
+            <div class="input-area">
+                <input type="text" id="city-input" placeholder="Enter city name...">
+                <button id="get-weather"><img src="icons/mic.png" alt="Get Weather"></button>
+            </div>
+            <div id="weather-result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

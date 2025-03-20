@@ -1,0 +1,66 @@
+/* Default Light Mode */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #000;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Button Styles */
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Input Fields */
+.input-area {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+input {
+    padding: 10px;
+    width: 60%;
+}
+
+/* Ensuring Icons Are Properly Sized */
+button img, .delete-btn, #weather-result img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background: white;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Dark Mode Task List */
+.dark-mode li {
+    background: #333;
+    color: white;
+}
