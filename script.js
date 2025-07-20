@@ -1,4 +1,4 @@
-const apiKey = "c47d59c3e939ded59aab1f80d319f840";
+const apiKey = "9c01b47c15d44a0fa8e53006252003";
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 // Clock & Greeting
