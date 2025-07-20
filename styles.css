@@ -1,150 +1,135 @@
-/* === RESET === */
+/* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
-/* === BODY === */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+  background: #f0f2f5; color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* === DARK MODE === */
 body.dark-mode {
-    background-color: #1e1e1e;
-    color: #f9f9f9;
+  background: #121212; color: #f0f0f0;
 }
 
-/* === CONTAINER === */
+/* CONTAINER */
 .container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: background 0.3s, color 0.3s;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  transition: background 0.3s;
 }
 
 body.dark-mode .container {
-    background: #2c2c2c;
+  background: #1e1e1e;
 }
 
-/* === THEME TOGGLE === */
+/* THEME TOGGLE BUTTON */
 #theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #4CAF50;
-    padding: 10px;
-    border-radius: 50%;
-    border: none;
+  position: fixed;
+  top: 20px; right: 20px;
+  background: #4caf50; border: none; border-radius: 50%;
+  padding: 10px; cursor: pointer;
 }
 
 #theme-toggle img {
-    width: 24px;
-    height: 24px;
+  width: 24px; height: 24px;
 }
 
-/* === SECTIONS === */
+/* SECTIONS */
 .todo-section, .weather-section {
-    margin: 30px 0;
+  margin-top: 30px;
 }
 
 h2 {
-    margin-bottom: 10px;
-    text-align: left;
+  margin-bottom: 15px; text-align: left;
 }
 
-/* === INPUT AREA === */
+/* INPUT AREA */
 .input-area {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex; gap: 10px; margin-bottom: 20px;
 }
 
 input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    font-size: 16px;
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
 }
 
 button {
-    padding: 10px 15px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+  border: none;
+  background: #4caf50;
+  padding: 0 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-    background: #45a049;
+  background: #388e3c;
 }
 
-/* === TASK LIST === */
+button img {
+  width: 20px; height: 20px;
+}
+
+/* TASK LIST */
 ul#task-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
 }
 
 ul#task-list li {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body.dark-mode ul#task-list li {
-    background: #3c3c3c;
-    border-color: #555;
-    color: #eee;
+  background: #2c2c2c;
+  border-color: #444;
 }
 
+/* DELETE BUTTON */
 .delete-btn {
-    background: none;
-    border: none;
-    color: red;
-    font-size: 18px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-/* === WEATHER RESULT === */
+/* WEATHER RESULT */
 #weather-result {
-    padding: 15px;
-    border-radius: 10px;
-    background: #e6f7ff;
-    border: 1px solid #b3e0ff;
-    text-align: left;
+  padding: 15px;
+  background: #e6f7ff;
+  border: 1px solid #b3e0ff;
+  border-radius: 10px;
+  text-align: left;
 }
 
 body.dark-mode #weather-result {
-    background: #2a3b4c;
-    border-color: #4a90e2;
-    color: #e0f0ff;
+  background: #2a3b4c;
+  border-color: #4a90e2;
+  color: #e0f0ff;
 }
 
-/* === RESPONSIVE === */
-@media screen and (max-width: 768px) {
-    .input-area {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%;
-    }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .input-area {
+    flex-direction: column;
+  }
+  button { width: 100%; padding: 12px; }
 }
