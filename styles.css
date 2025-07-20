@@ -1,114 +1,87 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: #0d1117;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #1f4037, #99f2c8);
+  color: #fff;
   min-height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
 }
 
 .app {
-  max-width: 800px;
-  width: 100%;
+  width: 90%;
+  max-width: 900px;
+  padding: 20px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 2rem;
-}
-
-#greeting {
-  font-size: 1.8rem;
-  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 #clock {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  color: #ccc;
+  font-size: 1.5rem;
+  margin-top: 5px;
 }
 
 .main {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
-h2 {
-  margin-bottom: 1rem;
+.todo-card,
+.weather-card {
+  flex: 1;
+  min-width: 300px;
 }
 
 .input-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 10px;
+  margin: 10px 0;
 }
 
-input {
+input[type="text"] {
   flex: 1;
-  padding: 0.8rem;
+  padding: 8px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 5px;
 }
 
 button {
-  padding: 0.8rem;
-  background: #1f6feb;
+  padding: 8px 10px;
+  background-color: #61dafb;
   border: none;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #388bfd;
-}
-
-#task-list {
-  list-style: none;
-  margin-top: 1rem;
 }
 
 #task-list li {
-  padding: 0.7rem;
-  border-bottom: 1px solid #333;
+  list-style: none;
+  padding: 5px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.delete-btn {
-  cursor: pointer;
-  color: red;
-}
-
-#weather-result {
-  margin-top: 1rem;
-  font-size: 1rem;
-}
-
 #quote-box {
-  margin-top: 2rem;
-  padding: 1rem;
-  font-style: italic;
+  margin-top: 20px;
   text-align: center;
-  color: #ccc;
+  font-style: italic;
 }
