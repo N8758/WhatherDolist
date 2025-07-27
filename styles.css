@@ -1,4 +1,4 @@
-/* Base Reset */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,45 +7,44 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #3d8361, #aad9bb);
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  padding: 20px;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  align-items: center;
+  padding: 30px 15px;
+  background-attachment: fixed;
 }
 
 /* Header */
 header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 #greeting {
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 #clock {
   font-size: 1.4rem;
-  color: #f1f1f1;
-  margin-top: 5px;
+  color: #bbb;
+  margin-top: 6px;
 }
 
 /* App Container */
 .app {
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Cards Container */
+/* Main Card Container */
 .main {
   display: flex;
   gap: 30px;
@@ -56,29 +55,32 @@ header {
 
 /* Glass Cards */
 .glass {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  padding: 20px 25px;
+  padding: 25px;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.05);
+  transition: transform 0.3s ease;
 }
 
 .glass:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
 }
 
-/* Titles */
+/* Section Titles */
 h2 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: #fff;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  color: #00ffe5;
+  border-left: 4px solid #00ffe5;
+  padding-left: 12px;
 }
 
-/* Input Groups */
+/* Input Group Styling */
 .input-group {
   display: flex;
   gap: 10px;
@@ -88,28 +90,33 @@ h2 {
 .input-group input {
   flex: 1;
   padding: 12px 15px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
+  background-color: #222;
+  color: #fff;
   font-size: 1rem;
   outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.1);
 }
 
 .input-group button {
   padding: 12px 15px;
   font-size: 1.2rem;
   border: none;
-  background-color: #4fc3f7;
+  background: linear-gradient(145deg, #00c6ff, #0072ff);
   color: white;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
 }
 
 .input-group button:hover {
-  background-color: #03a9f4;
+  background: linear-gradient(145deg, #0072ff, #00c6ff);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
 }
 
-/* Task List */
+/* To-Do List Items */
 #task-list {
   list-style: none;
   margin-top: 10px;
@@ -117,27 +124,60 @@ h2 {
 
 #task-list li {
   padding: 10px 15px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-bottom: 8px;
-  border-radius: 8px;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #00ffe5;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
 }
 
-/* Weather Info */
+#task-list li:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+#task-list li button {
+  background: transparent;
+  color: #ff5252;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Weather Section Output */
 #weather-result {
-  font-size: 0.95rem;
-  color: #fff;
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin-top: 15px;
 }
 
+/* Quote Box */
 #quote-box {
-  margin-top: 25px;
+  margin-top: 35px;
   font-style: italic;
-  font-size: 1rem;
-  padding: 15px;
+  font-size: 1.1rem;
+  padding: 20px;
   text-align: center;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  color: #f0f0f0;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  color: #aaa;
+  border-left: 4px solid #00ffe5;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .glass {
+    max-width: 100%;
+  }
 }
