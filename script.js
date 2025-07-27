@@ -1,6 +1,3 @@
-const apiKey = "9c01b47c15d44a0fa8e53006252003";
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
-
 // Clock & Greeting
 const clock = document.getElementById("clock");
 const greeting = document.getElementById("greeting");
@@ -42,7 +39,7 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-// Weather Logic
+// Weather Logic (Using Open-Meteo + Nominatim)
 const cityInput = document.getElementById("city-input");
 const getWeatherBtn = document.getElementById("get-weather");
 const weatherResult = document.getElementById("weather-result");
@@ -55,27 +52,39 @@ getWeatherBtn.addEventListener("click", async () => {
   }
 
   try {
-    const response = await fetch(`${weatherUrl}?q=${city}&appid=${apiKey}&units=metric`);
-    if (!response.ok) throw new Error("City not found");
-    const data = await response.json();
-    displayWeather(data);
+    const coordinates = await getCoordinates(city);
+    const weatherData = await getWeather(coordinates.lat, coordinates.lon);
+    displayWeather(city, weatherData);
   } catch (error) {
     weatherResult.innerHTML = `<p>Error: ${error.message}</p>`;
   }
 });
 
-function displayWeather(data) {
-  const { name } = data;
-  const { temp, humidity } = data.main;
-  const { speed } = data.wind;
-  const description = data.weather[0].description;
+// Get latitude and longitude from city name
+async function getCoordinates(city) {
+  const geoUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`;
+  const response = await fetch(geoUrl);
+  const data = await response.json();
+  if (data.length === 0) throw new Error("City not found");
+  return { lat: data[0].lat, lon: data[0].lon };
+}
 
+// Get weather from Open-Meteo
+async function getWeather(lat, lon) {
+  const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+  const response = await fetch(weatherUrl);
+  const data = await response.json();
+  if (!data.current_weather) throw new Error("Weather data not found");
+  return data.current_weather;
+}
+
+// Display weather in HTML
+function displayWeather(city, data) {
   weatherResult.innerHTML = `
-    <h3>Weather in ${name}</h3>
-    <p><strong>Temperature:</strong> ${temp}°C</p>
-    <p><strong>Description:</strong> ${description}</p>
-    <p><strong>Humidity:</strong> ${humidity}%</p>
-    <p><strong>Wind Speed:</strong> ${speed} m/s</p>
+    <h3>Weather in ${city}</h3>
+    <p><strong>Temperature:</strong> ${data.temperature}°C</p>
+    <p><strong>Wind Speed:</strong> ${data.windspeed} m/s</p>
+    <p><strong>Time:</strong> ${data.time}</p>
   `;
 }
 
